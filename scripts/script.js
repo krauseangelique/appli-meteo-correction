@@ -1,13 +1,15 @@
 /*
-  API Meteo utilisation de fetch
+    API Meteo utilisation de fetch
 */
-// weather[0]icon VA DONNER 
-// main.temp VA DONNER 10.56
-// Premier contact avec l'API
-/*fetch('https://jsonplaceholder.typicode.com/todos/1'), {method: "GET"}
-  .then(response => response.json())
-  .then(json => console.log(json))
+
+/* La méthode fetch() c'est then then  => https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
+
+fetch('https://jsonplaceholder.typicode.com/todos/1'), {method: "GET"}
+    .then(response => response.json())
+    .then(json => console.log(json))
 */
+
+/*Premier contact avec l'API */
 
 /* 1.Connection avec l'application via une clef PERSONNELLE
 home.openweathermap.org/api_keys call API Ange... API Keys*/
@@ -19,7 +21,7 @@ Latitude: 50.6333, Longitude: 5.56667 50° 37′ 60″ Nord, 5° 34′ 0″ Est
 const latLiege = 50.6333;
 const lonLiege = 5.56667;
 const lang = "fr";
-const counter = 7; // Les données météo de 7 jours
+const counter = 7; // Les données météo de 7 appel à l'API
 
 /* Connexion avec l'API via son URL : 
 https://api.openweathermap.org/data/2.5/forecast?units=metric&lat=50.6333&lon=5.56667&appid=6f0d59dfcb080cd8495827d107606a39&lang=fr&cnt=7
@@ -51,7 +53,7 @@ Console.log(response);     retourne :
 /* ----- Exemple avec Weather ------ */
 // function fetchingDatas(){}
 
-//function fetchingDatas
+//function fetchingDatas then then
 function fetchingDatas() {
 
     return fetch(weatherUrl).then((response) => {
@@ -78,7 +80,7 @@ async function displayDatas() {
     const callList = calls.list; // pour avoir la list et boucler sur celle-ci
     console.log(callList); // pour 7 appels on aura bien  ► (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}] un tableau d'objet
 
-    // pour chaque demande à l'API call est la demande
+    // pour chaque demande à l'API, call est la demande
     callList.forEach((call) => {
         const templateElement = document.importNode(document.querySelector('template').content, true);
 
@@ -92,6 +94,7 @@ async function displayDatas() {
         <p id="description">Description</p>
     </template>
    */
+
         // Affichage : je vais récupérer les id de mon templateElement 
         //  dans  l' ▼ Object je prends  ▼ list:0:  ce qui correspond au  call
         templateElement.getElementById("date").textContent          = `Date : ${call.dt_txt}`;
