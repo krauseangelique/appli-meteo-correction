@@ -30,13 +30,15 @@ const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?units=metri
 console.log(weatherUrl);
 
 // 4.fetch
+
 // fetch(weatherUrl)
 //     .then((response) => response.json())
 //     .then((response) => {
 //     });
+
 /*
-Console.log(response); retourne :
-  Object
+Console.log(response);     retourne :
+    Object
     city: {id: 2792414, name: 'Liège', coord: {…}, country: 'BE', population: 0, …}
     cnt:  7
     cod:  "200"   
@@ -70,11 +72,13 @@ function fetchingDatas() {
 async function displayDatas() {
 
     const calls = (await fetchingDatas()) || [];
-    console.log(calls); // va me donner l'objet ► Object et je dois regarder dans la ► list puis dans l'élément ► 0 et là j'aurai le jour, la temp et les autres paramètres demandés
 
-    const callList = calls.list;
+    console.log(calls); // va me donner l'objet ► Object et je dois regarder dans la ► list puis dans l'élément ► 0 et là je trouverai le jour, la temp et les autres paramètres demandés
 
-    // pour chaque demande à l'API
+    const callList = calls.list; // pour avoir la list et boucler sur celle-ci
+    console.log(callList); // pour 7 appels on aura bien  ► (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}] un tableau d'objet
+
+    // pour chaque demande à l'API call est la demande
     callList.forEach((call) => {
         const templateElement = document.importNode(document.querySelector('template').content, true);
 
@@ -88,15 +92,17 @@ async function displayDatas() {
         <p id="description">Description</p>
     </template>
    */
-        // Affichage : je vais récupérer les id de mon templateElement
-        templateElement.getElementById("date").textContent          = `Date: ${call.date}`;
-        //templateElement.
+        // Affichage : je vais récupérer les id de mon templateElement 
+        //  dans  l' ▼ Object je prends  ▼ list:0:  ce qui correspond au  call
+        templateElement.getElementById("date").textContent          = `Date : ${call.dt_txt}`;
+        templateElement.getElementById("image").src = `https://openweathermap.org/img/wn/${call.weather[0].icon}@2x.png`; // voir sur le site
         templateElement.getElementById("maxTemp").textContent       = `MAX t°: ${Math.round(call.main.temp_max)}`;
-        templateElement.getElementById("maxTemp").textContent       = `Min t°: ${Math.round(call.main.temp_min)}`;
-        templateElement.getElementById("winSpeed").textContent      = `${Math.round(call.wind.speed*3.6)} km/h`;
-        templateElement.getElementById("description").textContent   = call.dt_txt;
+        templateElement.getElementById("minTemp").textContent       = `Min t°: ${Math.round(call.main.temp_min)}`;
+        templateElement.getElementById("winSpeed").textContent      = `Vitesse du vent : ${Math.round(call.wind.speed*3.6)} km/h`; // transformation m/s en km/h
+        templateElement.getElementById("description").textContent   = call.weather[0].description; // ► weather:[{… }] est un TABLEAU
 
-        //  templateElement est un enfant de main dans mon HTML
+
+        //  templateElement est un enfant de main dans l'HTML
         document.querySelector("main").appendChild(templateElement);
     });
 

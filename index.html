@@ -8,30 +8,23 @@
     <title>Correction : Applis Meteo</title>
 </head>
 <body>
-    <template>
-      <p id="date">Date</p>
-      <img src="" alt="">
-      <p id="maxTemp">Max temp</p>
-      <p id="minTemp">Min temp</p>
-      <p id="winSpeed">Wind Speed</p>
-      <p id="description">Description</p>
-   </template>
-   
-    <!--
-        Au début, on a un tableau HTML pour lequel on insèrera du contenu plus tard grâce à l'aide d'un script JavaScript. Ensuite, on a le template qui décrit la structure du fragment HTML représentant une ligne de tableau.
-    -->
-    <header>
-       <h1>Appli Meteo pour 7 valeurs</h1>
-    </header>
-   
-    
-
-    <!-- Idem avec l'api Weather -->
     <!-- Ici le template qui nous servira à retourner les infos récupérées en JS -->
+    <template>
+        <p id="date">Date</p>
+        <img src="" alt="" id="image">
+        <p id="maxTemp">Max temp</p>
+        <p id="minTemp">Min temp</p>
+        <p id="winSpeed">Wind Speed</p>
+        <p id="description">Description</p>
+    </template>
 
-   <main>
-    <!-- existing data could optionally be included here -->
-   </main>
+    <header>
+        <h1>Appli Meteo pour 7 valeurs</h1>
+    </header>
+    
+    <main>
+        <!-- existing data could optionally be included here  INJECTION JS -->
+    </main>
    
 </body>
     <script src="./scripts/script.js"></script>
