@@ -13,7 +13,7 @@
 home.openweathermap.org/api_keys call API Ange... API Keys*/
 const apiKey = "6f0d59dfcb080cd8495827d107606a39";
 
-/* 2.Coordonnées de Liège
+/* 2.Coordonnées de Liège cf.Google
 Latitude: 50.6333, Longitude: 5.56667 50° 37′ 60″ Nord, 5° 34′ 0″ Est
 */
 const latLiege = 50.6333;
