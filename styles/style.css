@@ -3,6 +3,15 @@ body{
 }
 main{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+h1{
+    text-align: center;
+}
+div{
+    border: 1px solid brown;
+    background-color: wheat;
 }
 p#date{
     border-top : 1px solid green;

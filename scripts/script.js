@@ -97,6 +97,7 @@ async function displayDatas() {
 
         // Affichage : je vais récupérer les id de mon templateElement 
         //  dans  l' ▼ Object je prends  ▼ list:0:  ce qui correspond au  call
+        
         templateElement.getElementById("date").textContent          = `Date : ${call.dt_txt}`;
         templateElement.getElementById("image").src = `https://openweathermap.org/img/wn/${call.weather[0].icon}@2x.png`; // voir sur le site
         templateElement.getElementById("maxTemp").textContent       = `MAX t°: ${Math.round(call.main.temp_max)}`;
