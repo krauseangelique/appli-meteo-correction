@@ -1,6 +1,9 @@
 body{
     background-color: rgb(158, 226, 247);
 }
+main{
+    display: flex;
+}
 p#date{
     border-top : 1px solid green;
     padding-top: 10px;
