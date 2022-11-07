@@ -5,6 +5,7 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color:rgb(113, 136, 142);
 }
 h1{
     text-align: center;
@@ -12,8 +13,7 @@ h1{
 div{
     border: 1px solid brown;
     background-color: wheat;
-}
-p#date{
-    border-top : 1px solid green;
-    padding-top: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 13rem;
 }
